@@ -1,1 +1,20 @@
 
+name: myfirstworkflow
+
+on: push
+
+jobs:
+    first-job:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: Welcome Message
+              run: echo 'My firt GithubAction Job'
+
+            - name: List the files in current directory
+              run: ls -ltr
+
+            - name: Reading files
+              run: cat readme.md
+
+
+            
