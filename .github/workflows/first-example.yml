@@ -14,7 +14,7 @@ jobs:
               run: ls -ltr
 
             - name: current directory
-              run: pwd 
+              run: pwd  
 
             - name: Reading files
               run: cat readme.md
