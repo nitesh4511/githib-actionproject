@@ -1,0 +1,30 @@
+
+name: Generate ASCII Text
+
+on: push
+
+jobs:
+    first-job:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4
+
+            - name: Install Cowsay Program
+              run: sudo apt-get install cowsay -y 
+
+            - name: Execute Cowsay command
+              run: cowsay -f dragon "Run for cover, I am dragon....RAWR" >> dragon.txt 
+
+            - name: Test the file if it Exists
+              run: grep -i "dragon" dragon.txt
+              
+            - name: Read the ASCII text
+              run: cat dragon.txt
+              
+            - name: List the files
+              run: ls   
+
+            
+
+            
