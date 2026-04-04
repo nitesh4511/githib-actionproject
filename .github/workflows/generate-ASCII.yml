@@ -20,6 +20,7 @@ jobs:
             
 
     second-job:
+        needs: first-job
         runs-on: ubuntu-22.04
         steps:
             - name: checkout
@@ -32,6 +33,7 @@ jobs:
               
                
     third-job:
+        needs: second-job
         runs-on: ubuntu-22.04
         steps:
             - name: checkout
