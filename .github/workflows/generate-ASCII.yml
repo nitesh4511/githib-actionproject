@@ -15,7 +15,12 @@ jobs:
                ls  -ltra 
                sudo apt-get install cowsay -y
                cowsay -f dragon "Run for cover, I am dragon....RAWR" >> dragon.txt
-               sleep 30
+               sleep 10
+            - name: upload the artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                name: dragon-text-file
+                path: dragon.txt
 
             
 
@@ -25,6 +30,12 @@ jobs:
         steps:
             - name: checkout
               uses: actions/checkout@v4
+
+            - name: download the artifact
+              uses: actions/download-artifact@v8
+              with:
+                name: dragon-text-file
+                
 
             - name: Image Build check
               run: |
@@ -38,6 +49,12 @@ jobs:
         steps:
             - name: checkout
               uses: actions/checkout@v4
+
+            - name: download the artifact
+              uses: actions/download-artifact@v8
+              with:
+                name: dragon-text-file
+                
 
             - name: Printing file
               run: |
