@@ -10,14 +10,37 @@ jobs:
             - name: checkout
               uses: actions/checkout@v4
 
-            - name: List the files
-              run: ls  -ltra  
-
-            - name: Executing shell script
+            - name: Building the job
               run: |
-               chmod +x shells-script.sh
-               ./shells-script.sh 
+               ls  -ltra 
+               sudo apt-get install cowsay -y
+               cowsay -f dragon "Run for cover, I am dragon....RAWR" >> dragon.txt
+               sleep 30
+
+            
+
+    second-job:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4
+
+            - name: Image Build check
+              run: |
+                grep -i "dragon" dragon.txt
+                sleep 10
               
+               
+    third-job:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4
+
+            - name: Printing file
+              run: |
+               echo 'Deploying......'
+               cat dragon.txt     
              
 
             
