@@ -1,0 +1,12 @@
+name: Matrix configuration
+on:
+  push:
+  work_dispatch:
+
+jobs:
+  
+   deploys-on-ubuntu:
+   runs-on: ubuntu-latest
+   steps:
+   -  name: echo docker details
+      run: docker info
