@@ -1,7 +1,8 @@
 
 name: Generate ASCII Text
 
-on: push
+on: 
+  workflow_dispatch: 
 
 jobs:
     first-job:
