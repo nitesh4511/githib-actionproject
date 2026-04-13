@@ -1,0 +1,22 @@
+name: workflow-filters example
+on:
+    workflow_dispatch:
+    push:
+        branches: 
+            - main
+            - '!feature/**'
+    pull_request: 
+        types: 
+            - opened
+            - closed
+        paths-ignore:
+            - readme.md    
+        branches:
+            main     
+jobs:
+    hello:
+        timeout-minutes: 1
+        runs-on: ubuntu-latest
+        steps:
+            - name: sample test
+              run: echo this workflow/job/step is executed for event type - ${{github.event_name}}             
